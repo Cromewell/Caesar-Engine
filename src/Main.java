@@ -105,11 +105,22 @@ public class Main extends Application {
             for (char c: chars){
                 int pos = (int) c;
                 if(c >= 'a' && c <= 'z'){
+
                     pos = (pos - 'a' + shift)%26 + 'a';
-                    System.out.println(pos);
                     c = (char) pos;
                     result += c;
-                }else{
+
+                }else if(c >= 'A' && c <= 'Z'){
+
+                    pos =  (pos - 'A' + shift)%26 + 'A';
+                    c = (char) pos;
+                    result +=  c;
+
+                }else if(c == ' '){
+
+                    result += ' ';
+
+                } else {
                     output.setText("Wrong input.");
                 }
             }
@@ -125,7 +136,63 @@ public class Main extends Application {
 
     private String decrypt(String text, int shift){
 
-        return encrypt(text, -shift);
+        String result = "";
+
+        try{
+            char[] chars = new char[100];
+            for (int i = 0; i < text.length(); i++) {
+                chars[i] = text.charAt(i);
+            }
+            int count = 0;
+            for (char c : chars) {
+                if (c != '\u0000') {
+                    count++;
+                }
+            }
+            if(count < 100){
+                char[] tmp = new char[count];
+                for (int i = 0; i < tmp.length; i++) {
+                    tmp[i] = chars[i];
+                }
+                chars = tmp.clone();
+            }
+
+            for (char c: chars){
+                int pos = (int) c;
+                if(c >= 'a' && c <= 'z'){
+
+                    pos = pos - (shift%26);
+                    if(pos < 'a'){
+                        pos += 26;
+                    }
+                    c = (char) pos;
+                    result += c;
+
+                }else if(c >= 'A' && c <= 'Z'){
+
+                    pos =  pos - (shift%26);
+                    if(pos < 'A'){
+                        pos += 26;
+                    }
+                    c = (char) pos;
+                    result +=  c;
+
+                }else if(c == ' '){
+
+                    result += ' ';
+
+                } else {
+                    output.setText("Wrong input.");
+                }
+            }
+
+        }catch (IllegalArgumentException iae){
+            output.setText("Max characters = 100");
+            iae.printStackTrace();
+        }
+
+        return result;
+
 
     }
 
