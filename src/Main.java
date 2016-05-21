@@ -1,4 +1,4 @@
-package sample;
+package com.cromewell.caesar;
 
 import javafx.application.Application;
 import javafx.geometry.Insets;
