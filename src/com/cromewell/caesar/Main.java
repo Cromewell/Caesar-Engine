@@ -23,10 +23,11 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         primaryStage.setTitle("Caesar-Engine");
+        primaryStage.setResizable(false);
         Group root = new Group();
         VBox layout = new VBox(10);
         layout.setPadding(new Insets(10,10,10,10));
-        primaryStage.setScene(new Scene(root, 500, 410));
+        primaryStage.setScene(new Scene(root, 488, 410));
         root.getChildren().add(layout);
 
         /*----------*/
