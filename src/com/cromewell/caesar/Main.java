@@ -1,4 +1,4 @@
-package com.cromewell.caesar;
+package sample;
 
 import javafx.application.Application;
 import javafx.geometry.Insets;
@@ -41,7 +41,7 @@ public class Main extends Application {
         TextField changingValue = new TextField("Shifting value");
         layout.getChildren().add(changingValue);
 
-        TextArea input = new TextArea("Text to encrypt. (Only lowercase!)");
+        TextArea input = new TextArea("Text to encrypt.");
         input.setMaxHeight(200);
         layout.getChildren().add(input);
 
