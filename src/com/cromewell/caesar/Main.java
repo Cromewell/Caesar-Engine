@@ -41,7 +41,7 @@ public class Main extends Application {
         TextField changingValue = new TextField("Shifting value");
         layout.getChildren().add(changingValue);
 
-        TextArea input = new TextArea("Text to encrypt.");
+        TextArea input = new TextArea("Text to encrypt. (No special characters!)");
         input.setMaxHeight(200);
         layout.getChildren().add(input);
 
