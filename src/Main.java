@@ -81,28 +81,11 @@ public class Main extends Application {
     }
 
     private String encrypt(String text, int shift){
+
         String result = "";
 
-        try{
-            char[] chars = new char[100];
-            for (int i = 0; i < text.length(); i++) {
-                chars[i] = text.charAt(i);
-            }
-            int count = 0;
-            for (char c : chars) {
-                if (c != '\u0000') {
-                    count++;
-                }
-            }
-            if(count < 100){
-                char[] tmp = new char[count];
-                for (int i = 0; i < tmp.length; i++) {
-                    tmp[i] = chars[i];
-                }
-                chars = tmp.clone();
-            }
-
-            for (char c: chars){
+            for (int i = 0; i < text.length(); i++){
+                char c = text.charAt(i);
                 int pos = (int) c;
                 if(c >= 'a' && c <= 'z'){
 
@@ -125,11 +108,6 @@ public class Main extends Application {
                 }
             }
 
-        }catch (IllegalArgumentException iae){
-            output.setText("Max characters = 100");
-            iae.printStackTrace();
-        }
-
         return result;
 
     }
@@ -138,26 +116,8 @@ public class Main extends Application {
 
         String result = "";
 
-        try{
-            char[] chars = new char[100];
-            for (int i = 0; i < text.length(); i++) {
-                chars[i] = text.charAt(i);
-            }
-            int count = 0;
-            for (char c : chars) {
-                if (c != '\u0000') {
-                    count++;
-                }
-            }
-            if(count < 100){
-                char[] tmp = new char[count];
-                for (int i = 0; i < tmp.length; i++) {
-                    tmp[i] = chars[i];
-                }
-                chars = tmp.clone();
-            }
-
-            for (char c: chars){
+            for (int i = 0; i < text.length(); i++){
+                char c = text.charAt(i);
                 int pos = (int) c;
                 if(c >= 'a' && c <= 'z'){
 
@@ -186,13 +146,7 @@ public class Main extends Application {
                 }
             }
 
-        }catch (IllegalArgumentException iae){
-            output.setText("Max characters = 100");
-            iae.printStackTrace();
-        }
-
         return result;
-
 
     }
 
