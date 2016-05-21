@@ -11,6 +11,10 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
+/**
+ * @author Cromewell
+ * @version 1.0
+ */
 
 public class Main extends Application {
 
@@ -68,11 +72,12 @@ public class Main extends Application {
                 iae.printStackTrace();
             }
         });
+
         layout.getChildren().addAll(decrypt, encrypt);
         layout.setAlignment(Pos.BOTTOM_CENTER);
 
-
         primaryStage.show();
+
     }
 
 
@@ -84,29 +89,27 @@ public class Main extends Application {
 
         String result = "";
 
-            for (int i = 0; i < text.length(); i++){
-                char c = text.charAt(i);
-                int pos = (int) c;
-                if(c >= 'a' && c <= 'z'){
+        for (int i = 0; i < text.length(); i++){
+            char c = text.charAt(i);
+            int pos = (int) c;
+            if(c >= 'a' && c <= 'z'){
 
-                    pos = (pos - 'a' + shift)%26 + 'a';
-                    c = (char) pos;
-                    result += c;
+                pos = (pos - 'a' + shift)%26 + 'a';
+                c = (char) pos;
+                result += c;
 
-                }else if(c >= 'A' && c <= 'Z'){
+            }else if(c >= 'A' && c <= 'Z'){
 
-                    pos =  (pos - 'A' + shift)%26 + 'A';
-                    c = (char) pos;
-                    result +=  c;
+                pos =  (pos - 'A' + shift)%26 + 'A';
+                c = (char) pos;
+                result +=  c;
 
-                }else if(c == ' '){
-
-                    result += ' ';
-
-                } else {
-                    output.setText("Wrong input.");
-                }
+            }else if(c == ' '){
+                result += ' ';
+            } else {
+                output.setText("Wrong input.");
             }
+        }
 
         return result;
 
@@ -116,35 +119,33 @@ public class Main extends Application {
 
         String result = "";
 
-            for (int i = 0; i < text.length(); i++){
-                char c = text.charAt(i);
-                int pos = (int) c;
-                if(c >= 'a' && c <= 'z'){
+        for (int i = 0; i < text.length(); i++){
+            char c = text.charAt(i);
+            int pos = (int) c;
+            if(c >= 'a' && c <= 'z'){
 
-                    pos = pos - (shift%26);
-                    if(pos < 'a'){
-                        pos += 26;
-                    }
-                    c = (char) pos;
-                    result += c;
-
-                }else if(c >= 'A' && c <= 'Z'){
-
-                    pos =  pos - (shift%26);
-                    if(pos < 'A'){
-                        pos += 26;
-                    }
-                    c = (char) pos;
-                    result +=  c;
-
-                }else if(c == ' '){
-
-                    result += ' ';
-
-                } else {
-                    output.setText("Wrong input.");
+                pos = pos - (shift%26);
+                if(pos < 'a'){
+                    pos += 26;
                 }
+                c = (char) pos;
+                result += c;
+
+            }else if(c >= 'A' && c <= 'Z'){
+
+                pos =  pos - (shift%26);
+                if(pos < 'A'){
+                    pos += 26;
+                }
+                c = (char) pos;
+                result +=  c;
+
+            }else if(c == ' '){
+                result += ' ';
+            } else {
+                output.setText("Wrong input.");
             }
+        }
 
         return result;
 
